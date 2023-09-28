@@ -2,10 +2,24 @@ import React from "react";
 import { useState } from "react";
 import "./NewBoxForm.css";
 
+
+/**
+ * collects data and passes data to BoxList to create a specific box
+ *
+ * props:
+ * addBox: creates a new box object in BoxList
+ *
+ * state:
+ * - formData
+ *
+ *
+ *
+ */
 function NewBoxForm({ addBox }) {
   const initialState = { height: "", width: "", backgroundColor: "" };
   const [formData, setFormData] = useState(initialState);
 
+  /** changes the state and its properties */
   function handleChange(evt) {
     const { name, value } = evt.target;
 
@@ -15,6 +29,7 @@ function NewBoxForm({ addBox }) {
     }));
   }
 
+  /** on submit: sends data to create a box and resets the form */
   function handleSubmit(evt) {
     evt.preventDefault();
     addBox(formData);
@@ -29,6 +44,7 @@ function NewBoxForm({ addBox }) {
           <label htmlFor="height">Height:</label>
           <input
             required
+            type="number"
             id="height"
             name="height"
             value={formData.height}
@@ -39,6 +55,7 @@ function NewBoxForm({ addBox }) {
           <label htmlFor="width">Width:</label>
           <input
             required
+            type="number"
             id="width"
             name="width"
             onChange={handleChange}
