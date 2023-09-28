@@ -1,0 +1,9 @@
+.NewBoxForm {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.NewBoxForm-input {
+  margin: 5px;
+}
